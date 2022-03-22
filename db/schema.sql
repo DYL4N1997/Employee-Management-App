@@ -17,3 +17,11 @@ CREATE TABLE roles(
     ON DELETE SET NULL
 );
 
+CREATE TABLE employees (
+    id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(30) NOT NULL,
+    last_name VARCHAR(30) NOT NULL,
+    role_id INT(11) NOT NULL,
+    manager_id INT(11),
+     
+)
