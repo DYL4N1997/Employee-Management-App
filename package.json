@@ -1,0 +1,24 @@
+{
+    "name": "employee-management-app",
+    "version": "1.0.0",
+    "description": "A command-line application that is a database to store employees of a company. the tools used are Inquirer, Node.js, & MySQL",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/DYL4N1997/Employee-Management-App.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/DYL4N1997/Employee-Management-App/issues"
+    },
+    "homepage": "https://github.com/DYL4N1997/Employee-Management-App#readme",
+    "dependencies": {
+      "console.table": "^0.10.0",
+      "inquirer": "^8.2.1",
+      "mysql2": "^2.3.3"
+    }
+  }
