@@ -1,4 +1,4 @@
--- Creating database and 
+-- Creating database and adding properties
 DROP DATABASE IF EXISTS employees_db;
 CREATE DATABASE employees_db;
 USE employees_db;
@@ -22,7 +22,7 @@ CREATE TABLE employees (
     id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     first_name VARCHAR(30) NOT NULL,
     last_name VARCHAR(30) NOT NULL,
-    role_id INT(11) NOT NULL,
+    role_ID INT(11) NOT NULL,
     manager_ID INT(11),
     FOREIGN KEY (role_id)
     REFERENCES roles(id)
