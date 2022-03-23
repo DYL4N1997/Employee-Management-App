@@ -2,13 +2,13 @@ const inquirer = require('inquirer');
 const mysql = require('mysql2');
 const tTable = require ('terminal.table');
 
+const db = mysql.createConnection(
 
-  process.env.DB_NAME,
-  process.env.DB_USER,
-  process.env.DB_PASSWORD,
-  {
-    host: 'localhost',
-    dialect: 'mysql',
-    port: 3306,
-  }
+    {
+        host: 'localhost',
+        user: 'root',
+        password: '',
+        database: 'employees_db',
+    },
+    console.log(`A connection to the employees_db database has been established.`)
 );
