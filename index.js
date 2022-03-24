@@ -12,3 +12,17 @@ const db = mysql.createConnection(
     },
     console.log(`A connection to the employees_db database has been established.`)
 );
+
+const showAllDeparts = () => {
+    const sql = `SELECT * FROM departments`;
+
+    db.query (sql, (err, rows) => {
+        if (err) {
+            console.log(err.message);
+            return;
+        } else {
+            terminal.table(rows);
+            init();
+        }
+    });
+};
