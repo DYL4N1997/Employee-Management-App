@@ -76,3 +76,12 @@ function beginPrompt() {
      });
 }
 
+function view_Departments() {
+    let sql = "SELECT * FROM department";
+    connection.query(sql, function(err, res) {
+        if (err) throw err.message;
+        console.table(res);
+        beginPrompt();
+    });
+}
+
