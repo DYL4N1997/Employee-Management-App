@@ -3,31 +3,25 @@ DROP DATABASE IF EXISTS employees_db;
 CREATE DATABASE employees_db;
 USE employees_db;
 
-CREATE TABLE departments(
-    id INT(11) AUTO_INCREMENT NOT NULL PRIMARY KEY,
-    department VARCHAR(30) NOT NULL
+CREATE TABLE department (
+    id INT(11) AUTO_INCREMENT NOT NULL,
+    department VARCHAR(30) NOT NULL,
+    PRIMARY KEY(id)
 );
 
-CREATE TABLE roles(
+CREATE TABLE roles (
     id INT(11) AUTO_INCREMENT NOT NULL,
     title VARCHAR(30) NOT NULL,
     salary DECIMAL(12,2) NOT NULL,
-    department_ID INT,
-    FOREIGN KEY (department_ID)
-    REFERENCES department(id)
-    ON DELETE SET NULL
+    department_id INT NOT NULL,
+    PRIMARY KEY (id)
 );
 
 CREATE TABLE employees (
-    id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    id INT(11) NOT NULL AUTO_INCREMENT,
     first_name VARCHAR(30) NOT NULL,
     last_name VARCHAR(30) NOT NULL,
-    role_ID INT(11) NOT NULL,
-    manager_ID INT(11),
-    FOREIGN KEY (role_id)
-    REFERENCES roles(id)
-    ON DELETE SET NULL,
-    FOREIGN KEY (manager_ID)
-    REFERENCES role(id)
-    ON DELETE SET NULL
+    role_id INT(11) NOT NULL,
+    manager_id INT(11),
+    PRIMARY KEY(id)
 );
