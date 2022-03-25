@@ -32,7 +32,7 @@ function beginPrompt() {
              "Add a role",
              "Add an employee",
              "Update an employees role",
-             "Exit"
+             "Close"
          ],
          name: "data",
          message: "What would you like to view in the database?"
@@ -71,7 +71,7 @@ function beginPrompt() {
                 
             default:
                 
-            exit();
+            close();
          }
      });
 }
@@ -106,7 +106,7 @@ function view_Employees() {
 
 
 
-function exit() {
+function close() {
     connection.end();
     process.exit();
 }
