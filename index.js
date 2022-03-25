@@ -103,3 +103,11 @@ function view_Employees() {
     });
 }
 
+
+
+
+function exit() {
+    connection.end();
+    process.exit();
+}
+
