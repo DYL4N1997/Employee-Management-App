@@ -77,7 +77,16 @@ function beginPrompt() {
 }
 
 function view_Departments() {
-    let sql = "SELECT * FROM department";
+    let sql = "SELECT * FROM departments";
+    connection.query(sql, function(err, res) {
+        if (err) throw err.message;
+        console.table(res);
+        beginPrompt();
+    });
+}
+
+function view_Roles() {
+    let sql = "SELECT * FROM roles";
     connection.query(sql, function(err, res) {
         if (err) throw err.message;
         console.table(res);
