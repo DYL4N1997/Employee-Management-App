@@ -20,5 +20,27 @@ dbConnect.connect(function(err) {
     beginPrompt();
 });
 
+function beginPrompt() {
+    inquirer
+     .prompt({
+         type: "list",
+         choices: [
+             "View all departments",
+             "View all roles",
+             "View all employees",
+             "Add a department",
+             "Add a role",
+             "Add an employee",
+             "Update an employees role",
+             "Quit"
+         ],
+         name: "data",
+         message: "What would you like to view in the database?"
+     })
+     .then(function(choice) {
+         console.log("Your choice was: " + choice.data);
 
+         
+     })
+}
 
