@@ -32,7 +32,7 @@ function beginPrompt() {
              "Add a role",
              "Add an employee",
              "Update an employees role",
-             "Quit"
+             "Exit"
          ],
          name: "data",
          message: "What would you like to view in the database?"
@@ -40,7 +40,39 @@ function beginPrompt() {
      .then(function(choice) {
          console.log("Your choice was: " + choice.data);
 
-         
-     })
+         switch (choice.data) {
+            case "View all departments":
+                view_Departments();
+                break;
+
+            case "View all roles":
+                view_Roles();
+                break;
+            
+            case "View all employees":
+                view_Employees();
+                break;
+
+            case "Add a department":
+                add_Department();
+                break;
+            
+            case "Add a role":
+                add_Role();
+                break;
+
+            case "Add an employee":
+                add_Employee();
+                break;
+            
+            case "Update an employees role":
+                add_EmployeeRole();
+                break;
+                
+            default:
+                
+            exit();
+         }
+     });
 }
 
