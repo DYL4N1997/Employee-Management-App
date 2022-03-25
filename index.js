@@ -121,6 +121,35 @@ function add_Department() {
     })
 }
 
+function add_Role() {
+
+    inquirer.prompt({
+
+        name: "roleAdd",
+        type: "input",
+        message: "Enter the name of the additional role"
+    },
+    {
+        name: "salaryTotal",
+        type: "input",
+        message: "What is the total salary for the role"
+    },
+    {
+        name: "departID",
+        type: "input",
+        message: "Enter the department ID number"
+    }
+    ])
+    .then(function(answer) {
+
+
+
+    }
+
+
+
+    })
+}
 
 function close() {
     connection.end();
