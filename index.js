@@ -203,10 +203,13 @@ function add_EmployeeRole() {
       .then(function(responses) {
 
 
-        connection.query('UPDATE empoloyee SET role_id=?')
-      }
-      )
-}
+        connection.query("UPDATE empoloyee SET role_id=? WHERE first_name= ?", [responses.empUpdate, responses.empUpdateRole], (err,res) => {
+            if (err) throw err.message;
+            console.table(res);
+            beginPrompt();
+        });
+    });
+}    
 
 
 
