@@ -95,7 +95,12 @@ function view_Roles() {
 }
 
 function view_Employees() {
-    let sql = "SELECT * FROM employees";
+    let sql = `SELECT employees.id AS id, employees.first_name AS first_name, employees.last_name AS last_name, roles.title AS job_title, department.name AS department, roles.salary AS salary, CONCAT (manager.first_name, " ", manager.last_name) AS manager
+    FROM employees
+    JOIN roles ON employees.role_id = roles.id
+    JOIN department ON roles.department_id = department.id
+    LEFT JOIN employees manager on employees.manager_id = manager.id
+    ORDER BY id ASC;`;
     dbConnect.query(sql, (err, res) => {
         if (err) throw err.message;
         console.table(res);
