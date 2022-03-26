@@ -211,8 +211,6 @@ function add_EmployeeRole() {
     });
 }    
 
-
-
 function close() {
     connection.end();
     process.exit();
