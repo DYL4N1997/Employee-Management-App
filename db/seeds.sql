@@ -1,5 +1,5 @@
 -- Dummy data
-INSERT INTO departments(name)
+INSERT INTO department(name)
 VALUES ("Sales"),
        ("Tehcnical Engineer"),
        ("Finance"),
