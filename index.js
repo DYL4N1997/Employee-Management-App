@@ -150,6 +150,35 @@ function add_Role() {
     });
 }
 
+function add_Employee() {
+
+    inquirer.prompt([
+
+        {
+            name: "empFirstName",
+            type: "input",
+            message: "Enter the employees first name"
+        },
+        {
+            name: "empLastName",
+            type: "input",
+            message: "Enter the employees last name"
+        },
+        {
+            name: "roleID",
+            type: "input",
+            message: "Enter the id number of the employees role"
+        },
+        {
+            name: "managerID",
+            type: "input",
+            message: "Enter the managers id number"
+        }
+    ])
+     .then(function(reponses) {
+
+        
+     }
 
 
 function close() {
