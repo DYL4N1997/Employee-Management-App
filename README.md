@@ -32,3 +32,7 @@ Once the user runs the app the following instructions are provided:
 - Add an employee (The user is prompted to enter the employee’s first name, last name, role, and manager, and that employee is added to the database)
 - Update an employee's role (The user is prompted to select an employee to update and their new role and this information is updated in the database)
 - Close (Close the application down)
+
+# Video Demo
+
+Coming soon....
