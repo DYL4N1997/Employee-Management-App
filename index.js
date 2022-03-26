@@ -185,6 +185,28 @@ function add_Employee() {
      });
 }
 
+function add_EmployeeRole() {
+
+    inquirer.prompt([
+        {
+            name: "empUpdate",
+            type: "input",
+            message: "Choose the employee you want to update"
+        },
+        
+        {
+            name: "empUpdateRole",
+            type: "input",
+            message: "Choose what role you want to update to"
+        }
+      ])
+      .then(function(responses) {
+
+
+        connection.query('UPDATE empoloyee SET role_id=?')
+      }
+      )
+}
 
 
 
