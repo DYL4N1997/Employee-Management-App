@@ -78,7 +78,7 @@ function beginPrompt() {
 
 function view_Departments() {
     let sql = "SELECT * FROM department";
-    connection.query(sql, (err, res) => {
+    dbConnect.query(sql, (err, res) => {
         if (err) throw err.message;
         console.table(res);
         beginPrompt();
@@ -87,7 +87,7 @@ function view_Departments() {
 
 function view_Roles() {
     let sql = "SELECT * FROM roles";
-    connection.query(sql, (err, res) => {
+    dbConnect.query(sql, (err, res) => {
         if (err) throw err.message;
         console.table(res);
         beginPrompt();
@@ -96,7 +96,7 @@ function view_Roles() {
 
 function view_Employees() {
     let sql = "SELECT * FROM employees";
-    connection.query(sql, (err, res) => {
+    dbConnect.query(sql, (err, res) => {
         if (err) throw err.message;
         console.table(res);
         beginPrompt();
@@ -113,7 +113,7 @@ function add_Department() {
 
     }).then(function(responses) {
 
-        connection.query("INSERT INTO department (name) VALUES (?)", [responses.departName], (err, res) => {
+        dbConnect.query("INSERT INTO department (name) VALUES (?)", [responses.departName], (err, res) => {
             if (err) throw err.message;
             console.table(res)
             beginPrompt()
@@ -142,7 +142,7 @@ function add_Role() {
     ])
     .then(function(responses) {
 
-        connection.query("INSERT INTO role (title, salary, department_id) VALUES (?,?,?)", [responses.roleAdd, responses.salaryTotal, responses.departID], (err, res) => {
+        dbConnect.query("INSERT INTO role (title, salary, department_id) VALUES (?,?,?)", [responses.roleAdd, responses.salaryTotal, responses.departID], (err, res) => {
             if (err) throw err.message;
             console.table(res);
             beginPrompt();
@@ -177,7 +177,7 @@ function add_Employee() {
     ])
      .then(function(responses) {
 
-        connection.query("INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES (?,?,?,?)", [responses.empFirstName, responses.empLastName, responses.roleID, responses.managerID], (err, res) => {
+        dbConnect.query("INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES (?,?,?,?)", [responses.empFirstName, responses.empLastName, responses.roleID, responses.managerID], (err, res) => {
             if (err) throw err.message;
             console.table(res);
             beginPrompt();
@@ -203,7 +203,7 @@ function add_EmployeeRole() {
       .then(function(responses) {
 
 
-        connection.query("UPDATE empoloyee SET role_id=? WHERE first_name= ?", [responses.empUpdate, responses.empUpdateRole], (err,res) => {
+        dbConnect.query("UPDATE empoloyee SET role_id=? WHERE first_name= ?", [responses.empUpdate, responses.empUpdateRole], (err,res) => {
             if (err) throw err.message;
             console.table(res);
             beginPrompt();
@@ -212,7 +212,7 @@ function add_EmployeeRole() {
 }    
 
 function close() {
-    connection.end();
+    dbConnect.end();
     process.exit();
 }
 
