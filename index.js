@@ -111,7 +111,7 @@ function add_Department() {
         type: "input",
         message: "Enter the name of the department"
 
-    }).then(function(response) {
+    }).then(function(answer) {
 
         connection.query("INSERT INTO department (name) VALUES (?)", [answer.departName], function (err, res) {
             if (err) throw err.message;
@@ -123,8 +123,8 @@ function add_Department() {
 
 function add_Role() {
 
-    inquirer.prompt({
-
+    inquirer.prompt([
+    {
         name: "roleAdd",
         type: "input",
         message: "Enter the name of the additional role"
@@ -142,14 +142,15 @@ function add_Role() {
     ])
     .then(function(answer) {
 
-
-
-    }
-
-
-
-    })
+        connection.query("INSERT INTO role (title, salary, department_id) VALUES (?,?,?)", [answer.roleAdd, answer.salaryTotal, answer.departID], function (err, res) {
+            if (err) throw err.message;
+            console.table(res);
+            beginPrompt();
+        });
+    });
 }
+
+    
 
 function close() {
     connection.end();
