@@ -78,7 +78,7 @@ function beginPrompt() {
 
 function view_Departments() {
     let sql = "SELECT * FROM department";
-    connection.query(sql, function(err, res) {
+    connection.query(sql, (err, res) => {
         if (err) throw err.message;
         console.table(res);
         beginPrompt();
@@ -87,7 +87,7 @@ function view_Departments() {
 
 function view_Roles() {
     let sql = "SELECT * FROM roles";
-    connection.query(sql, function(err, res) {
+    connection.query(sql, (err, res) => {
         if (err) throw err.message;
         console.table(res);
         beginPrompt();
@@ -96,7 +96,7 @@ function view_Roles() {
 
 function view_Employees() {
     let sql = "SELECT * FROM employees";
-    connection.query(sql, function(err, res) {
+    connection.query(sql, (err, res) => {
         if (err) throw err.message;
         console.table(res);
         beginPrompt();
@@ -111,9 +111,9 @@ function add_Department() {
         type: "input",
         message: "Enter the name of the department"
 
-    }).then(function(answer) {
+    }).then(function(responses) {
 
-        connection.query("INSERT INTO department (name) VALUES (?)", [answer.departName], function (err, res) {
+        connection.query("INSERT INTO department (name) VALUES (?)", [responses.departName], (err, res) => {
             if (err) throw err.message;
             console.table(res)
             beginPrompt()
@@ -140,9 +140,9 @@ function add_Role() {
         message: "Enter the department ID number"
     }
     ])
-    .then(function(answer) {
+    .then(function(responses) {
 
-        connection.query("INSERT INTO role (title, salary, department_id) VALUES (?,?,?)", [answer.roleAdd, answer.salaryTotal, answer.departID], function (err, res) {
+        connection.query("INSERT INTO role (title, salary, department_id) VALUES (?,?,?)", [responses.roleAdd, responses.salaryTotal, responses.departID], (err, res) => {
             if (err) throw err.message;
             console.table(res);
             beginPrompt();
@@ -150,7 +150,7 @@ function add_Role() {
     });
 }
 
-    
+
 
 function close() {
     connection.end();
