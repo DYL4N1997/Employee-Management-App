@@ -175,10 +175,17 @@ function add_Employee() {
             message: "Enter the managers id number"
         }
     ])
-     .then(function(reponses) {
+     .then(function(responses) {
 
-        
-     }
+        connection.query("INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES (?,?,?,?)", [responses.empFirstName, responses.empLastName, responses.roleID, responses.managerID], (err, res) => {
+            if (err) throw err.message;
+            console.table(res);
+            beginPrompt();
+        });
+     });
+}
+
+
 
 
 function close() {
