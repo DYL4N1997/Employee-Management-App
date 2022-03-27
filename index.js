@@ -86,7 +86,9 @@ function view_Departments() {
 }
 
 function view_Roles() {
-    let sql = "SELECT * FROM roles";
+    let sql = `SELECT roles.id AS id, roles.title AS title, department.name AS department, roles.salary AS salary
+    FROM roles
+    JOIN department ON roles.department_id = department.id;`;
     dbConnect.query(sql, (err, res) => {
         if (err) throw err.message;
         console.table(res);
