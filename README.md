@@ -35,4 +35,6 @@ Once the user runs the app the following instructions are provided:
 
 # Video Demo
 
-Coming soon....
+https://user-images.githubusercontent.com/82978161/160305466-9cdfb3a3-7e3f-4319-a48f-4742b10bd35f.mp4
+
+
